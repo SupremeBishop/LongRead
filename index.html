@@ -1,0 +1,640 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Кожа в переходном возрасте: осознанный уход</title>
+  <meta name="description" content="Лонгрид о подростковой коже: контекст, базовая рутина, активы, мифы, диаграммы и небольшой интерактивный тест." />
+
+  <style>
+    /* ====== Tilda-like baseline ====== */
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --soft:#f9fafb;
+      --quote:#f3f4f6;
+      --shadow: 0 18px 40px rgba(17,24,39,.10);
+      --radius: 18px;
+      --max: 1200px;
+      --content: 760px;
+
+      --accent:#111827;
+      --blue:#2563eb;
+      --green:#10b981;
+      --amber:#f59e0b;
+      --rose:#f43f5e;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font: 18px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{color:inherit}
+    img{max-width:100%; display:block}
+
+    .page{width:100%;}
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+    .content{
+      max-width: var(--content);
+      margin: 0 auto;
+    }
+
+    .block{
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .block:last-child{border-bottom:none}
+
+    /* Cover */
+    .cover{
+      position:relative;
+      min-height: 84vh;
+      display:flex;
+      align-items:flex-end;
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--line);
+      background: #f7f7f7;
+      overflow:hidden;
+    }
+    .cover::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.42) 70%, rgba(0,0,0,.55) 100%),
+        url("images/cover.png");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+    }
+    .cover-inner{
+      position:relative;
+      width:100%;
+      color:#fff;
+    }
+    .kicker{
+      display:inline-block;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity:.9;
+      margin-bottom: 12px;
+    }
+    h1{
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height:1.08;
+      letter-spacing:-.02em;
+      margin: 0 0 16px;
+      max-width: 20ch;
+    }
+    .lead{
+      font-size: clamp(16px, 2.1vw, 20px);
+      line-height: 1.6;
+      max-width: 70ch;
+      margin: 0 0 18px;
+      opacity:.95;
+    }
+    .cover-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 18px;
+    }
+    .pill{
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* TOC */
+    .toc{
+      margin-top: 22px;
+      display:flex; flex-wrap:wrap;
+      gap:10px;
+    }
+    .toc a{
+      text-decoration:none;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .toc a:hover{transform: translateY(-1px); background: rgba(255,255,255,.22)}
+
+    /* Typography */
+    h2{
+      font-size: 34px;
+      line-height:1.2;
+      letter-spacing:-.01em;
+      margin: 0 0 18px;
+    }
+    h3{
+      font-size: 22px;
+      line-height:1.35;
+      margin: 28px 0 10px;
+    }
+    p{margin: 0 0 14px}
+    .muted{color:var(--muted)}
+    .small{font-size: 14px; line-height:1.6; color:var(--muted)}
+    .divider{height:1px; background:var(--line); margin: 24px 0}
+
+    .quote{
+      border-left: 4px solid #111827;
+      background: var(--quote);
+      padding: 18px 18px;
+      border-radius: 14px;
+      margin: 18px 0;
+    }
+
+    figure{margin: 18px 0 22px;}
+    figcaption{
+      margin-top:10px;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap:14px;
+      margin: 18px 0 22px;
+    }
+    .cardimg{
+      border-radius: 16px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+    .cardimg img{width:100%; height:100%; object-fit:cover}
+    @media (max-width: 860px){
+      .gallery{grid-template-columns: 1fr}
+    }
+
+    /* Viz */
+    .viz{
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 12px 0 10px;
+    }
+    .viz svg{width:100%; height:auto; display:block}
+    .viz text{
+      fill: #111827;
+      font-size: 14px;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+    }
+    .viz .label{fill:#6b7280; font-size:12px}
+
+    ul,ol{margin: 10px 0 16px 22px}
+    li{margin: 6px 0}
+
+    /* Interactive */
+    .box{
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 12px;
+    }
+    .box label{
+      display:block;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .btn{
+      appearance:none;
+      border: 1px solid #111827;
+      background: #111827;
+      color:#fff;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor:pointer;
+      transition: transform .12s ease, opacity .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); opacity:.95}
+    .result{margin-top: 12px; color: var(--muted)}
+
+    /* Footer */
+    .footer{
+      padding: 46px 0 70px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align:center;
+    }
+    .footer a{
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37,99,235,.35);
+    }
+    .footer a:hover{border-bottom-color: rgba(37,99,235,.7)}
+
+    /* Top button */
+    .top{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:44px; height:44px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background:#fff;
+      box-shadow: 0 10px 20px rgba(17,24,39,.10);
+      cursor:pointer;
+      display:none;
+    }
+    .top.show{display:block}
+  </style>
+</head>
+
+<body>
+  <div class="page" id="top">
+    <!-- COVER -->
+    <section class="cover">
+      <div class="container cover-inner">
+        <div class="kicker">осознанный уход • подростковая кожа</div>
+        <h1>Кожа в переходном возрасте: поиск баланса</h1>
+        <p class="lead">
+          Когда кожа становится непредсказуемой, хочется «быстрого решения». Но чаще всего помогает другое:
+          понятная рутина, аккуратное отношение к барьеру и грамотные активы — без перегруза.
+        </p>
+
+        <div class="cover-meta">
+          <span class="pill">Практические принципы</span>
+          <span class="pill">Диаграммы и схемы</span>
+          <span class="pill">Мини-тест в конце</span>
+        </div>
+
+        <nav class="toc" aria-label="Оглавление">
+          <a href="#intro">Вступление</a>
+          <a href="#context">Контекст</a>
+          <a href="#base">База ухода</a>
+          <a href="#actives">Активы</a>
+          <a href="#inci">Как читать состав</a>
+          <a href="#myths">Мифы</a>
+          <a href="#test">Тест</a>
+          <a href="#outro">Заключение</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="block" id="intro">
+      <div class="container">
+        <div class="content">
+          <h2>Вступление</h2>
+          <p>
+            В какой-то момент я заметил(а), что кожа перестала быть предсказуемой.
+            Сегодня всё нормально, завтра — воспаление, потом — сухость и раздражение.
+            На этом фоне советы из соцсетей только запутывают: «подсушивай», «увлажняй», «нужны кислоты каждый день».
+            В результате легко прийти к хаосу: много средств, мало понимания.
+          </p>
+
+          <div class="quote">
+            <strong>Полезная мысль, которая всё меняет:</strong> уход — это не погоня за идеалом, а способ вернуть коже стабильность и комфорт.
+            Сначала — база и барьер. Потом — точечные решения под конкретную проблему.
+          </div>
+
+          <p>
+            Ниже — разбор того, почему выбор ухода сегодня стал сложнее, как собрать минимальную рабочую рутину,
+            и как подключать активные ингредиенты так, чтобы они помогали, а не ухудшали ситуацию.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="block" id="context">
+      <div class="container">
+        <div class="content">
+          <h2>Почему стало сложнее</h2>
+
+          <p>
+            Подростковая кожа меняется из-за гормональной перестройки: сальные железы работают активнее,
+            роговой слой обновляется иначе, а воспаления возникают легче. Но к биологии добавились ещё два фактора.
+            Первый — визуальные стандарты из соцсетей. Второй — рынок косметики, где вариантов так много, что легко потеряться.
+          </p>
+
+          <figure class="cardimg" style="margin:18px 0 10px;">
+            <img src="images/market.png" alt="Разные средства ухода на розовом фоне" loading="lazy">
+          </figure>
+          <figcaption class="small">Изобилие выбора часто создаёт ощущение, что «нужно ещё одно средство». На практике выигрывает система.</figcaption>
+
+          <h3>Диаграмма: какие вопросы звучат чаще</h3>
+          <div class="viz" role="img" aria-label="Диаграмма запросов">
+            <svg viewBox="0 0 760 280">
+              <line x1="60" y1="30" x2="60" y2="230" stroke="#d1d5db" stroke-width="2"/>
+              <line x1="60" y1="230" x2="720" y2="230" stroke="#d1d5db" stroke-width="2"/>
+
+              <line x1="60" y1="190" x2="720" y2="190" stroke="#e5e7eb" />
+              <line x1="60" y1="150" x2="720" y2="150" stroke="#e5e7eb" />
+              <line x1="60" y1="110" x2="720" y2="110" stroke="#e5e7eb" />
+              <line x1="60" y1="70"  x2="720" y2="70"  stroke="#e5e7eb" />
+
+              <text x="20" y="234" class="label">0%</text>
+              <text x="20" y="194" class="label">20%</text>
+              <text x="20" y="154" class="label">40%</text>
+              <text x="20" y="114" class="label">60%</text>
+              <text x="20" y="74"  class="label">80%</text>
+
+              <rect x="110" y="110" width="120" height="120" rx="10" fill="#2563eb"/>
+              <rect x="280" y="170" width="120" height="60"  rx="10" fill="#10b981"/>
+              <rect x="450" y="220" width="120" height="10"  rx="10" fill="#f59e0b"/>
+              <rect x="620" y="224" width="80"  height="6"   rx="10" fill="#f43f5e"/>
+
+              <text x="120" y="102" fill="#111827">60%</text>
+              <text x="290" y="162" fill="#111827">30%</text>
+              <text x="462" y="214" fill="#111827">5%</text>
+              <text x="628" y="218" fill="#111827">3%</text>
+
+              <text x="120" y="262" class="label">«Срочно убрать прыщ»</text>
+              <text x="305" y="262" class="label">«Жирность/поры»</text>
+              <text x="478" y="262" class="label">«Тип кожи»</text>
+              <text x="612" y="262" class="label">«Состав»</text>
+            </svg>
+          </div>
+
+          <h3>Карта факторов: что влияет на состояние кожи</h3>
+          <div class="box">
+            <ul>
+              <li><strong>Биология:</strong> гормоны, активность сальных желез, индивидуальная чувствительность.</li>
+              <li><strong>Стресс и сон:</strong> недосып, перегруз, эмоциональное напряжение.</li>
+              <li><strong>Среда:</strong> сезонность, отопление, влажность, спорт и пот.</li>
+              <li><strong>Привычки:</strong> трогать лицо, выдавливать, «умывание до скрипа».</li>
+              <li><strong>Информация:</strong> тренды и советы без контекста состояния кожи.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BASE -->
+    <section class="block" id="base">
+      <div class="container">
+        <div class="content">
+          <h2>База ухода: минимум, который реально работает</h2>
+
+          <p>
+            Основа почти всегда выглядит одинаково: очищение, увлажнение, SPF.
+            Всё остальное — дополнительные шаги, которые стоит подключать только тогда, когда понятно, зачем они нужны.
+          </p>
+
+          <div class="gallery" aria-label="Галерея">
+            <div class="cardimg">
+              <img src="images/routine.png" alt="Минималистичный набор средств" loading="lazy">
+            </div>
+            <div class="cardimg">
+              <img src="images/inci.png" alt="Набор средств на бежевом фоне" loading="lazy">
+            </div>
+          </div>
+
+          <h3>Схема: базовая рутина</h3>
+          <div class="viz" role="img" aria-label="Схема базовой рутины">
+            <svg viewBox="0 0 860 220">
+              <rect x="60"  y="80" width="220" height="60" rx="14" fill="#111827"/>
+              <rect x="320" y="80" width="220" height="60" rx="14" fill="#2563eb"/>
+              <rect x="580" y="80" width="220" height="60" rx="14" fill="#10b981"/>
+
+              <text x="118" y="118" fill="#ffffff">Очищение</text>
+              <text x="367" y="118" fill="#ffffff">Увлажнение</text>
+              <text x="662" y="118" fill="#ffffff">SPF утром</text>
+
+              <line x1="280" y1="110" x2="320" y2="110" stroke="#111827" stroke-width="3"/>
+              <line x1="540" y1="110" x2="580" y2="110" stroke="#111827" stroke-width="3"/>
+
+              <text x="60" y="170" class="label">Вечером: очищение → увлажнение. Если был SPF/макияж — двойное очищение.</text>
+            </svg>
+          </div>
+
+          <h3>Очищение</h3>
+          <p>
+            «Скрипящая чистота» ощущается как результат, но часто приводит к сухости и раздражению.
+            Мягкое очищение обычно безопаснее и помогает коже вести себя стабильнее.
+          </p>
+
+          <h3>Увлажнение</h3>
+          <p>
+            Жирная кожа тоже может быть обезвоженной. Лёгкие текстуры обычно комфортнее плотных,
+            особенно если есть комедоны и воспаления.
+          </p>
+
+          <h3>SPF</h3>
+          <p>
+            SPF снижает риск выраженных пятен после воспалений и поддерживает кожу, если используются кислоты.
+            Важно подобрать формулу, которую реально хочется наносить каждый день.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVES -->
+    <section class="block" id="actives">
+      <div class="container">
+        <div class="content">
+          <h2>Активы: когда нужны и как не переборщить</h2>
+
+          <p>
+            Активные ингредиенты подключают по необходимости. Если кожа раздражена, первым делом лучше стабилизировать базу.
+          </p>
+
+          <figure class="cardimg" style="margin:18px 0 10px;">
+            <img src="images/texture.png" alt="Крем в баночке: текстура и нанесение" loading="lazy">
+          </figure>
+
+          <h3>Салициловая кислота (BHA)</h3>
+          <p>
+            Подходит при забитых порах и чёрных точках. Разумный старт — 1–2% и 2–3 раза в неделю вечером.
+          </p>
+
+          <h3>Азелаиновая кислота</h3>
+          <p>
+            Часто помогает при воспалениях и покраснениях. Нередко ощущается мягче, чем агрессивные пилинги.
+          </p>
+
+          <h3>Ниацинамид</h3>
+          <p>
+            Может поддерживать барьер и уменьшать жирный блеск. Лучше начинать спокойно и смотреть на реакцию.
+          </p>
+
+          <div class="quote">
+            <strong>Правило:</strong> вводить активы по одному и постепенно. Так проще понять, что именно помогает.
+          </div>
+
+          <div class="quote">
+            <strong>Комментарий дерматолога.</strong><br>
+            Подростковой коже чаще всего помогает регулярная база и бережное отношение к барьеру.
+            Сильные средства без режима применения нередко дают обратный эффект: раздражение, сухость и больше воспалений.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCI -->
+    <section class="block" id="inci">
+      <div class="container">
+        <div class="content">
+          <h2>Как читать INCI и не вестись на упаковку</h2>
+
+          <p>
+            Ингредиенты перечисляются по убыванию количества. Если актив в конце, его там обычно немного.
+          </p>
+
+          <figure class="cardimg" style="margin:18px 0 10px;">
+            <img src="images/inci.png" alt="Средства ухода на бежевом фоне" loading="lazy">
+          </figure>
+
+          <h3>Мини-шпаргалка</h3>
+          <ol>
+            <li><strong>Основа:</strong> Water/Aqua — почти всегда в начале.</li>
+            <li><strong>Увлажнители:</strong> Glycerin, Hyaluronic Acid и похожие.</li>
+            <li><strong>Эмоленты:</strong> Squalane, Dimethicone и т.п. дают комфорт.</li>
+            <li><strong>Активы:</strong> Salicylic Acid, Niacinamide — часто полезно видеть ближе к середине.</li>
+            <li><strong>Отдушка:</strong> Fragrance/Parfum может раздражать чувствительную кожу.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- MYTHS -->
+    <section class="block" id="myths">
+      <div class="container">
+        <div class="content">
+          <h2>Мифы, которые чаще всего портят кожу</h2>
+
+          <h3>Зубная паста на воспаление</h3>
+          <p>
+            Может вызвать раздражение и ожог. Если нужна «быстрая помощь», лучше выбрать точечное средство по инструкции.
+          </p>
+
+          <h3>Скрабы по воспалённой коже</h3>
+          <p>
+            Частицы могут травмировать кожу и ухудшать воспаление. Эксперименты «до красноты» редко заканчиваются хорошо.
+          </p>
+
+          <h3>Умываться пять раз в день</h3>
+          <p>
+            Риск разрушить защитный слой и получить сухость и чувствительность.
+          </p>
+
+          <h3>«Жжёт — значит работает»</h3>
+          <p>
+            Сильное жжение и стойкое покраснение — сигнал остановиться и восстановить барьер.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEST -->
+    <section class="block" id="test">
+      <div class="container">
+        <div class="content">
+          <h2>Небольшой тест</h2>
+          <p class="muted">Для самопроверки: насколько уход похож на систему.</p>
+
+          <div class="box">
+            <form id="careTest">
+              <label><input type="checkbox" name="q"> Я понимаю разницу между типом кожи и обезвоженностью</label>
+              <label><input type="checkbox" name="q"> Я умываюсь мягко и не «до скрипа»</label>
+              <label><input type="checkbox" name="q"> У меня есть увлажнение, даже если кожа жирная</label>
+              <label><input type="checkbox" name="q"> Я использую SPF, особенно если применяю кислоты</label>
+              <label><input type="checkbox" name="q"> Я ввожу активы постепенно и по одному</label>
+
+              <button class="btn" type="button" onclick="calcCareTest()">Посчитать</button>
+            </form>
+
+            <div id="careResult" class="result"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTRO -->
+    <section class="block" id="outro">
+      <div class="container">
+        <div class="content">
+          <h2>Заключение</h2>
+
+          <p>
+            Когда появляется базовая логика — мягкое очищение, увлажнение и SPF — уход становится проще.
+            Активы помогают, если вводить их спокойно и по одному. И если что-то явно ухудшается,
+            лучше сделать шаг назад и вернуть коже комфорт.
+          </p>
+
+          <div class="divider"></div>
+
+          <p class="muted">
+            Если высыпания выраженные, болезненные или долго не проходят, стоит обсудить ситуацию со специалистом —
+            это часто экономит время и снижает риск следов на коже.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        © Материал: лонгрид об осознанном уходе за кожей<br>
+        <span class="small">Мой сайт: <a href="https://supremebishop.github.io/MySite/" target="_blank" rel="noopener noreferrer">https://supremebishop.github.io/MySite/</a></span>
+      </div>
+    </section>
+
+    <button class="top" id="toTop" aria-label="Наверх">↑</button>
+  </div>
+
+  <script>
+    // Плавная прокрутка к якорям
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Кнопка "Наверх"
+    const btn = document.getElementById('toTop');
+    const toggleTop = () => {
+      if (window.scrollY > 900) btn.classList.add('show');
+      else btn.classList.remove('show');
+    };
+    window.addEventListener('scroll', toggleTop, { passive: true });
+    toggleTop();
+    btn.addEventListener('click', () => {
+      document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Тест
+    function calcCareTest(){
+      const checked = document.querySelectorAll('#careTest input[name="q"]:checked').length;
+      const out = document.getElementById('careResult');
+
+      let text = '';
+      if (checked <= 1) {
+        text = 'Сейчас уход больше «по ситуации». Начни с базы: мягкое очищение + увлажнение + SPF.';
+      } else if (checked <= 3) {
+        text = 'Неплохо: база уже появляется. Добавь регулярность и не торопись с активами.';
+      } else {
+        text = 'Отлично: уход выглядит продуманным. Главное — не перегружать кожу и сохранять мягкость.';
+      }
+      out.textContent = text;
+    }
+  </script>
+</body>
+</html>
